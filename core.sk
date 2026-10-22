@@ -90,67 +90,57 @@ command /kickall [<text>]:
             stop
 
 command /disconnect [<offline player>] [<text>]:
+    permission: op
     trigger:
-        if player is an op:
-            if arg-1 or arg-2 is not set:
-                send "&cUsage: /disconnect <player> <text>" to player
-            else:
-                if arg-1 is offline:
-                    send "&c%arg-1% is offline."
-                else:
-                    kick arg-1 due to arg-2
+        if arg-1 or arg-2 is not set:
+            send "&cUsage: /disconnect <player> <text>" to player
         else:
-            send "&cUnknown or incomplete command. See below for error%nl%&c&ndisconnect %arg-1% %arg-2%&r&c<--&o[HERE]" to player
+            if arg-1 is offline:
+                send "&c%arg-1% is offline."
+            else:
+                kick arg-1 due to arg-2
 
 command /cavescare [<player>]:
+    permission: op
     trigger:
-        if player is an op:
-            if arg-1 is not set:
-                send "&cUsage: /cavescare <player>" to player
-            else:
-                play sound "ambient.cave" with volume 1.0 and pitch 1.0 to arg-1
-                send "&aSent cave scare to %arg-1%!" to player
+        if arg-1 is not set:
+            send "&cUsage: /cavescare <player>" to player
         else:
-            send "&cUnknown or incomplete command. See below for error%nl%&c&ncavescare %arg-1%<--&o[HERE]" to player  
+            play sound "ambient.cave" with volume 1.0 and pitch 1.0 to arg-1
+            send "&aSent cave scare to %arg-1%!" to player
 
 command /witherscare [<player>]:
+    permission: op
     trigger:
-        if player is an op:
-            if arg-1 is not set:
-                send "&cUsage: /witherscare <player>" to player
-            else:
-                send "&aSent wither scare to %arg-1%!" to player
-                play sound "entity.wither.spawn" with volume 1.0 and pitch 1.0 to arg-1
-                wait 4 seconds
-                play sound "entity.wither.death" with volume 1.0 and pitch 1.0 to arg-1
+        if arg-1 is not set:
+            send "&cUsage: /witherscare <player>" to player
         else:
-            send "&cUnknown or incomplete command. See below for error%nl%&c&nwitherscare %arg-1%<--&o[HERE]" to player
+            send "&aSent wither scare to %arg-1%!" to player
+            play sound "entity.wither.spawn" with volume 1.0 and pitch 1.0 to arg-1
+            wait 4 seconds
+            play sound "entity.wither.death" with volume 1.0 and pitch 1.0 to arg-1
 
 command /enderscare [<player>]:
+    permission: op
     trigger:
-        if player is an op:
-            if arg-1 is not set:
-                send "&cUsage: /witherscare <player>" to player
-            else:
-                send "&aSent ender scare to %arg-1%!" to player
-                play sound "entity.ender_dragon.ambient" with volume 1.0 and pitch 1.0 to arg-1
-                wait 2 seconds
-                play sound "entity.ender_dragon.death" with volume 1.0 and pitch 1.0 to arg-1
+        if arg-1 is not set:
+            send "&cUsage: /witherscare <player>" to player
         else:
-            send "&cUnknown or incomplete command. See below for error%nl%&c&nenderscare %arg-1%<--&o[HERE]" to player 
+            send "&aSent ender scare to %arg-1%!" to player
+            play sound "entity.ender_dragon.ambient" with volume 1.0 and pitch 1.0 to arg-1
+            wait 2 seconds
+            play sound "entity.ender_dragon.death" with volume 1.0 and pitch 1.0 to arg-1
 
 command /creeperscare [<player>]:
+    permission: op
     trigger:
-        if player is an op:
-            if arg-1 is not set:
-                send "&cUsage: /creeperscare <player>" to player
-            else:
-                send "&aSent creeper scare to %arg-1%!" to player
-                play sound "entity.creeper.primed" with volume 1.0 and pitch 1.0 to arg-1
-                wait 2 seconds
-                play sound "minecraft:entity.generic.explode" with volume 1.0 and pitch 1.0 to arg-1
+        if arg-1 is not set:
+            send "&cUsage: /creeperscare <player>" to player
         else:
-            send "&cUnknown or incomplete command. See below for error%nl%&c&ncreeperscare %arg-1%<--&o[HERE]" to player 
+            send "&aSent creeper scare to %arg-1%!" to player
+            play sound "entity.creeper.primed" with volume 1.0 and pitch 1.0 to arg-1
+            wait 2 seconds
+            play sound "minecraft:entity.generic.explode" with volume 1.0 and pitch 1.0 to arg-1
 
 command /reload:
     trigger:
